@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600&display=swap");
+* {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 8rem;
+    overflow-x: hidden;
+  }
+  
+  html::-webkit-scrollbar {
+    width: 1rem;
+  }
+  
+  html::-webkit-scrollbar-track {
+    background: #000;
+  }
+  
+  html::-webkit-scrollbar-thumb {
+    background: #eacf4f;
+    border-radius: 5rem;
+  }
+
+  body {
+    background: url(/static/upload/images/background.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    /* overflow: hidden; */
+    margin-top: 4%;
+  }
+    
+
+  
+  .signup-box {
+    width: 360px;
+    height: 633px;
+    text-align: center;
+    margin: 47px auto;
+    background-color: #ff9800ba;
+    border-radius: 3px;
+  }
+  
+  .login-box {
+    width: 360px;
+    height: 280px;
+    margin: auto;
+    border-radius: 3px;
+    background-color: white;
+  }
+  
+  h1 {
+    text-align: center;
+    padding-top: 15px;
+  }
+  
+  h4 {
+    text-align: center;
+  }
+  
+  form {
+    width: 300px;
+    margin-left: 20px;
+  }
+  
+  form label {
+    display: flex;
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  
+  form input {
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border: 1px solid gray;
+    border-radius: 6px;
+    outline: none;
+  }
+  input[type="button"] {
+    width: 320px;
+    height: 35px;
+    margin-top: 20px;
+    border: none;
+    background-color: #b71c1c;
+    color: white;
+    font-size: 18px;
+  }
+  input[type="submit"] {
+    width: 320px;
+    height: 35px;
+    margin-top: 20px;
+    border: none;
+    background-color: #b71c1c;
+    color: white;
+    font-size: 18px;
+  }
+  input[type="button"]:hover {
+    background-color: rgba(133, 1, 1, 0.205);
+  }
+
+  input[type="submit"]:hover {
+    background-color: rgba(184, 181, 178, 0.45);
+  }
+  p {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 15px;
+  }
+  .para-2 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    margin-top: -50px;
+  }
+  .para-2 a {
+    color: #0063a9;
+  }
+  .login-box .log-moa {
+    margin-top: 20%;
+    color: aliceblue;
+  }
+  .para-2 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    margin-top: -16px;
+    color: aliceblue;
+}
+.login-box {
+  width: 360px;
+  height: 280px;
+  margin: auto;
+  border-radius: 3px;
+  margin-top: 10%;
+  color: aliceblue;
+  background-color: #ffffff26;
+}

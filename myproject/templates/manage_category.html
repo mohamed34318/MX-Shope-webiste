@@ -1,0 +1,82 @@
+{% extends 'Home.html' %}
+
+{% block title %} Manager Categories {% endblock %}
+
+{% block content %}
+
+<div class="wrapper">
+  <div class="sidebar">
+    <h2>Admin Page</h2>
+    <ul>
+      <li><a href="{{url_for('home_admins' )}}" ><i class="fas fa-home"></i>Home</a></li>
+      <li><a  href="{{url_for('manage_user' )}}"><i class="fas fa-user"></i>Manage user</a>
+      </li>
+      <li><a  href="{{url_for('manage_posts' )}}"><i class="fas fa-user"></i>Manage Product</a>
+      </li>
+      <li><a  href="{{url_for('manage_orders' )}}"><i class="fas fa-user"></i>Manage Orders</a>
+      </li>
+      <li><a  href="{{url_for('manage_category' )}}"><i class="fas fa-user"></i>Manage Category</a>
+      </li>
+      </li>
+      <li style = "color:white;"><i class='fa fa-wpexplorer ' style="color:white;"></i> MX Shope
+          Website</a></li>
+      <li><a href="{{url_for('login')}}">
+              <iconify-icon icon="bx:log-out" width="29" height="20"></iconify-icon>
+              LOG OUT
+          </a></li>
+          
+  </ul>
+  </div>
+  <div class="main_content">
+
+    <div class="header">Welcome!! Have a nice day.</div>
+    <div class="info">
+      <div class="container">
+        <div class="row">
+          <h1 class="he23">Manage Categories</h1>
+          <a href="{{url_for('add_category')}}"> <button type="button" class="btn btn-primary">Add category</button></a>
+
+          <table class="table-latitude">
+            <thead>
+
+              <th>Category ID</th>
+              <th>Category Name</th>
+              <th>status</th>
+              <th>update</th>
+              <th>remove</th>
+
+
+            </thead>
+            <tfoot>
+              <tr>
+                <td colspan=6>Contact details for the Knowledge and Development Team</td>
+              </tr>
+            </tfoot>
+            <tbody>
+              {% for category_data in category_data_admin %}
+                <tr>
+                <th>{{category_data.catId}}</th>
+                <th>{{category_data.catName}}</th>
+                <td>{% if category_data.status == 0 %}
+                  <span style="color: green;">opend </span>
+              {% elif category_data.status == 1 %}
+                  <span style="color: red;">Closed</span>
+  
+              {% endif %}</td>
+              <td><a href="{{ url_for('update_category_data', catId=category_data.catId) }}"><button class="button">Update</button></a></td>
+              <td><a href="{{ url_for('remove_category', category_id=category_data.catId) }}"><button class="button-danger">Remove</button></a></td>
+              </tr>
+                {% endfor %}
+            
+            </tbody>
+           
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"></script>
+
+{% endblock %}

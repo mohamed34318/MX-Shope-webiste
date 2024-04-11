@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Home{% endblock %}</title>
+    <link rel="stylesheet" href="../static/static_admin/css/dashboard.css">
+    <link rel="stylesheet" href="../static/static_admin/admin.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <!-- <link rel="stylesheet" href="/../css/manage_post.css"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" -->
+    <!-- integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+
+    <link rel="stylesheet" href="/static/static_admin/css/manage_post.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+</head>
+
+<body>
+    {% block content %}
+    <section class="header">
+        <div class="logo">
+            <i class="ri-menu-line icon icon-0 menu"></i>
+            <h2 style="padding:10px ;">MX<span>Shope</span></h2>
+        </div>
+        <div class="search--notification--profile">
+            <div class="search">
+                <input type="text" placeholder="Search Scdule..">
+                <button><i class="ri-search-2-line"></i></button>
+            </div>
+         <!---->   <div class="notification--profile">
+            <div class="picon profile">
+                
+                <img src="../static/static_admin/upload/images/pic-2.png" alt="">
+            </div>
+            {% if admin_data %}
+        <span style="color: white; margin-left: 20px;">Welcome {{ admin_data.adminUser }}</span>
+    {% else %}
+        <p>No admin data found for this email.</p>
+    {% endif %}
+            </div>
+            
+        </div>
+    </section>
+
+    <div class="nssn">
+        <div class="wrapper">
+            <div class="sidebar">
+                <h2>Admin Page</h2>
+                <ul>
+                    <li><a href="{{url_for('home_admins' )}}" ><i class="fas fa-home"></i>Home</a></li>
+                    <li><a  href="{{url_for('manage_user' )}}"><i class="fas fa-user"></i>Manage user</a>
+                    </li>
+                    <li><a  href="{{url_for('manage_posts' )}}"><i class="fas fa-user"></i>Manage products</a>
+                    </li>
+                    <li><a  href="{{url_for('manage_orders' )}}"><i class="fas fa-user"></i>Manage Orders</a>
+                    </li>
+                    <li><a  href="{{url_for('manage_category' )}}"><i class="fas fa-user"></i>Manage Category</a>
+                    </li>
+                    </li>
+                    <li style = "color:white;"><i class='fa fa-wpexplorer ' style="color:white;"></i> MX Shope
+                        Website</a></li>
+                    <li><a href="{{url_for('login')}}">
+                            <iconify-icon icon="bx:log-out" width="29" height="20"></iconify-icon>
+                            LOG OUT
+                        </a></li>
+
+
+                        
+                </ul>
+            </div>
+        </div>
+
+
+
+        <section class="main">
+            <div class="main--content">
+                <div class="overview">
+                    <div class="title">
+                        <h2 class="section--title" style="color:rgba(240, 248, 255, 0.644) ;">Overview</h2>
+
+                    </div>
+                    <div class="cards">
+                        
+                        <div class="card card-2">
+                            <div class="card--data">
+                                <div class="card--content">
+                                    <h5 class="card--title">New Customer</h5>
+                                    <h1>{{total_customers}}</h1>
+                                </div>
+                                <i class="ri-user-line card--icon--lg"></i>
+                            </div>
+                            <div class="card--stats">
+                                <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>82%</span>
+                                <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>230</span>
+                                <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>45</span>
+                            </div>
+                        </div>
+                        <div class="card card-2">
+                            <div class="card--data">
+                                <div class="card--content">
+                                    <h5 class="card--title">Order deliverd</h5>
+                                    <h1>{{total_order_dlevired}}</h1>
+                                </div>
+                                <i class="ri-user-line card--icon--lg"></i>
+                            </div>
+                            <div class="card--stats">
+                                <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>82%</span>
+                                <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>230</span>
+                                <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>45</span>
+                            </div>
+                        </div>
+                        <div class="card card-3">
+                            <div class="card--data">
+                                <div class="card--content">
+                                    <h5 class="card--title">order Confirmed </h5>
+                                    <h1>{{total_order_confirmed}}</h1>
+                                </div>
+                                <iconify-icon inline icon="ic:twotone-done" width="80" height="80"></iconify-icon>
+
+                            </div>
+                            <div class="card--stats">
+                                <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>27%</span>
+                                <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>31</span>
+                                <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>23</span>
+                            </div>
+                        </div>
+                        <div class="card card-4">
+                            <div class="card--data">
+                                <div class="card--content">
+                                    <h5 class="card--title">order Pending </h5>
+                                    <h1>{{total_order_pending}}</h1>
+                                </div>
+                                <iconify-icon inline icon="ic:twotone-done" width="80" height="80"></iconify-icon>
+
+                            </div>
+                            <div class="card--stats">
+                                <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>8%</span>
+                                <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>11</span>
+                                <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+             
+                <div class="recent--patients" style="">
+                    <div class="title">
+                        <h2 class="section--title" style="color:rgba(240, 248, 255, 0.658) ;">Recent orders</h2>
+                        <a href="{{url_for('manage_orders' )}}"> <button class="add"><i
+                                    class="ri---line"></i>show All Orders</button></a>
+                    </div>
+                    <div class="table">
+
+                        <table class="table-latitude">
+                            <thead>
+
+                                <th>Product Name</th>
+                                <th>Amount</th>
+                                <th>total price</th>
+                                <th>email</th>
+                                <th>Customer name</th>
+                                <th>status</th>
+                                <th>Edit</th>
+                                <th>remove</th>
+                            </thead>
+
+                            <tbody>
+                                {% for info_order in get_orders_info_with_status_0 %}
+                                <tr>
+                                    <th>{{info_order.product_name}}</th>
+                                    <th>{{info_order.amount}}</th>
+                                    <td>{{info_order.total_price}}<span>$</span></td>
+                                    <td>{{info_order.email}}</td>
+                                    <td>{{info_order.customer_name}}</td>
+                                    <td>
+                                        {% if info_order.status == 0 %}
+                                            <span style="color: red;">Pending</span>
+                                        {% elif info_order.status == 1 %}
+                                            <span style="color: yellow;">Confirmed</span>
+                                        {% elif info_order.status == 2 %}
+                                            <span style="color: green;">Delivered</span>
+                                        {% else %}
+                                            Unknown
+                                        {% endif %}
+                                    </td>
+                                    <td> <a href="{{ url_for('update_order_status', order_id=info_order.orderId) }}">
+                                        <span><i class="fas fa-pen"></i></span>
+                                    </a>
+                                    </td>
+                                    <td><a href="{{ url_for('remove_order', order_id=info_order.orderId) }}"><i class="ri-delete-bin-line delete"></i></a></span>
+
+
+                                </tr>
+                              
+                              {% endfor %}
+
+                              
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"></script>
+        {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+{% extends 'Home.html' %}
+
+{% block title %} Manager user {% endblock %}
+
+{% block content %}
+
+<div class="wrapper">
+  <div class="sidebar">
+    <h2>Admin Page</h2>
+    <ul>
+      <li><a href="{{url_for('home_admins' )}}" ><i class="fas fa-home"></i>Home</a></li>
+      <li><a  href="{{url_for('manage_user' )}}"><i class="fas fa-user"></i>Manage user</a>
+      </li>
+      <li><a  href="{{url_for('manage_posts' )}}"><i class="fas fa-user"></i>Manage Product</a>
+      </li>
+      <li><a  href="{{url_for('manage_orders' )}}"><i class="fas fa-user"></i>Manage Orders</a>
+      </li>
+      <li><a  href="{{url_for('manage_category' )}}"><i class="fas fa-user"></i>Manage Category</a>
+      </li>
+      </li>
+      <li style = "color:white;"><i class='fa fa-wpexplorer ' style="color:white;"></i> MX Shope
+          Website</a></li>
+      <li><a href="{{url_for('login')}}">
+              <iconify-icon icon="bx:log-out" width="29" height="20"></iconify-icon>
+              LOG OUT
+          </a></li>
+          
+  </ul>
+
+  </div>
+  <div class="main_content">
+    <div class="header">Welcome!! Have a nice day.</div>
+    <div class="info">
+      <div class="container">
+        <div class="row">
+          <h1 class="he23">Manage User</h1>
+          <table class="table-latitude">
+            <thead>
+
+              <th>ID</th>
+              <th>Name</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>Country</th>
+              <th>zip</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>status</th>
+              <th>Edit</th>
+              <th>remove</th>
+            </thead>
+            <tfoot>
+              <tr>
+                <td colspan=6>Contact details for the Knowledge and Development Team</td>
+              </tr>
+            </tfoot>
+            <tbody>
+                {% for customer_data in customer_data %}
+                <tr>
+                <th>{{customer_data.id}}</th>
+                <th>{{customer_data.name}}</th>
+                <td>{{customer_data.address}}</td>
+                <td>{{customer_data.city}}</td>
+                <td>{{customer_data.country}}</td>
+                <td>{{customer_data.zip}}</td>
+                <td>{{customer_data.phone}}</td>
+                <td>{{customer_data.email}}</td>
+                <td>{% if customer_data.status == 0 %}
+                  <span style="color: green;">Active </span>
+              {% elif customer_data.status == 1 %}
+                  <span style="color: red;">Closed</span>
+              {% else %}
+                  hold
+              {% endif %}</td>
+                <td><a href="{{url_for('update_user' , customerid = customer_data.id)}}"><button class="button">Update</button></a></td>
+                <td><a href="{{url_for('remove_user' , customerid = customer_data.id  )}}"><button class="button-danger">Remove</button></a></td>
+              </tr>
+                {% endfor %}
+            
+            </tbody>
+           
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"></script>
+
+{% endblock %}

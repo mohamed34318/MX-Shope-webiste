@@ -1,0 +1,90 @@
+  {% extends 'Home.html' %}
+
+{% block title %} manager posts {% endblock %}
+
+{% block content %}
+
+
+<div class="wrapper">
+  <div class="sidebar">
+    <h2>Admin Page</h2>
+    <ul>
+      <li><a href="{{url_for('home_admins')}}" ><i class="fas fa-home"></i>Home</a></li>
+      <li><a  href="{{url_for('manage_user' )}}"><i class="fas fa-user"></i>Manage user</a>
+      </li>
+      <li><a  href="{{url_for('manage_posts' )}}"><i class="fas fa-user"></i>Manage Products</a>
+      </li>
+      <li><a  href="{{url_for('manage_orders' )}}"><i class="fas fa-user"></i>Manage Orders</a>
+      </li>
+      <li><a  href="{{url_for('manage_category' )}}"><i class="fas fa-user"></i>Manage Category</a>
+      </li>
+      </li>
+      <li style = "color:white;"><i class='fa fa-wpexplorer ' style="color:white;"></i> MX Shope
+          Website</a></li>
+      <li><a href="{{url_for('login')}}">
+              <iconify-icon icon="bx:log-out" width="29" height="20"></iconify-icon>
+              LOG OUT
+          </a></li>
+          
+  </ul>
+    <div class="social_media">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <h1 class="title-page" style="padding: 20px;
+  margin: 20px auto;">Manage Products</h1>
+    <a href="{{url_for('add_post' )}}"> <button type="button" class="btn btn-primary">Add Product</button></a>
+    <!-- *********************************** -->
+    <table style="margin-left:15% ; width:80%;" class="table-latitude">
+      <thead>
+        <th>product Id</th>
+        <th>product Name</th>
+        <th>price</th>
+        <th>category</th>
+        <th>quantity</th>
+        <th>imagefile</th>
+        <th>status</th>
+        <th>update</th>
+        <th>remove</th>
+
+      </thead>
+      
+      <tbody method="POST">
+        {% for product_data in product_data %}
+        <tr>
+          <td>{{product_data.productId}}</td>
+          <th>{{product_data.productName}}</th>
+          <td>{{product_data.price}}</td>
+          <td>{{product_data.category.catName}}</td>
+          <td>{{product_data.quantity}}</td>
+          <td>{{product_data.image}}</td>
+          <td> {% if product_data.status == 0 %}
+            <span style="color: green;">available </span>
+        {% elif product_data.status == 1 %}
+            <span style="color: red;">out os stock</span>
+        {% else %}
+            Unknown
+        {% endif %}</td>
+          <td ><a href="{{url_for('update_post' ,productid = product_data.productId  )}}"><button class="button" >Update</button></a></td>
+          <td><a href="{{ url_for('remove_post',   productid=product_data.productId) }}"><button class="button-danger">Remove</button></a></td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+
+    </table>
+
+
+
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"></script>
+
+
+    {% endblock %}

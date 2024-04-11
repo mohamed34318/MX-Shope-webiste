@@ -1,0 +1,51 @@
+{% extends 'Home.html' %}
+{% block title %}create user{% endblock %}
+
+{% block content %}
+    <div class="main_content">
+      <div class="info">
+        <div class="container req" >
+          <div class="row">
+            <!-- <button type="button" class="btn btn-primary">Add Post</button> -->
+            <h1 class="he23">Sign Up</h1>
+            <!-- form -->
+            <form method="post" style=" color:aliceblue; text-align:left;  ">
+  
+              <label for="fname">Name</label>
+              <input type="text" id="fname"  name="firstname" placeholder="firstname..">
+  
+              <label for="Gender">Gender</label>
+              <input type="text" id="Gender" name="gender" placeholder="Gender..">
+  
+              <label for="age">age</label>
+              <input type="text" id="age" name="age" placeholder="age..">
+  
+              <label for="Email">Email</label>
+              <input type="text" id="Email" name="email" placeholder="Email..">
+  
+              <label for="address_user">address_user</label>
+              <input type="text" id="address_user" name="address_user" placeholder="Address..">
+  
+              <label for="password_user">password_user</label>
+              <input type="text" id="password_user" name="password_user" placeholder="password..">
+              <label for="password">confirming password</label>
+              <input type="text" id="password"  placeholder="password..">
+              <br>
+              <input type="submit" style="margin-left: 0%; width:200px;" value="Save">
+            </form>
+            
+            <!-- ****** -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="paar-2" style="position:absolute; left:57%; color:antiquewhite; top:570px; "> Already have an account? <a style="color:chocolate ;"  href="{{url_for('login_page')}}">Login here</a>
+    </p>
+  
+  
+    <script src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"></script>
+  
+
+
+
+{% endblock %}

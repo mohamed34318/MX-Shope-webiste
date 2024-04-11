@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Update Order</title>
+  <link rel="stylesheet" href="../static/static_admin/css/dashboard.css">
+  <link rel="stylesheet" href="../static/static_admin/admin.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="/static/static_admin/css/manage_post.css">
+</head>
+
+<body>
+  <style>
+    .wrapper .main_content .info div {
+      margin-bottom: 24px;
+      margin-left: 15%;
+      margin-top: 2%;
+    }
+
+    .wrapper .main_content .info {
+      margin: 20px;
+      color: #cbcbcb;
+      line-height: 25px;
+      font-family: Arial;
+      margin: 7%;
+    }
+
+    .heading {
+      margin: 2% 12%;
+    }
+
+    .wrapper .main_content .info div {
+      margin-bottom: 24px;
+      margin-left: 15%;
+      margin-top: 2%;
+      padding: 0px;
+      font-size: 19px;
+    }
+
+    form input[type="text"] {
+      margin-left: 27px;
+      width: 200px;
+      height: 23px;
+    }
+  </style>
+
+  <div class="wrapper">
+    <div class="sidebar">
+      <h2>Admin Page</h2>
+      <ul>
+        <li><a href="{{url_for('home_admins' )}}" ><i class="fas fa-home"></i>Home</a></li>
+        <li><a  href="{{url_for('manage_user' )}}"><i class="fas fa-user"></i>Manage user</a>
+        </li>
+        <li><a  href="{{url_for('manage_posts' )}}"><i class="fas fa-user"></i>Manage Product</a>
+        </li>
+        <li><a  href="{{url_for('manage_orders' )}}"><i class="fas fa-user"></i>Manage Orders</a>
+        </li>
+        <li><a  href="{{url_for('manage_category' )}}"><i class="fas fa-user"></i>Manage Category</a>
+        </li>
+        </li>
+        <li style = "color:white;"><i class='fa fa-wpexplorer ' style="color:white;"></i> MX Shope
+            Website</a></li>
+        <li><a href="{{url_for('login')}}">
+                <iconify-icon icon="bx:log-out" width="29" height="20"></iconify-icon>
+                LOG OUT
+            </a></li>
+            
+    </ul>
+    </div>
+    <!-- main content -->
+    <div class="main_content">
+      <div class="info">
+        <div class="container">
+          <div class="row justify-content-center">
+            <h1 class="heading">Update Order</h1>
+            <form method="POST" class="col-lg-8">
+              <div class="form-group">
+                <label for="id"  >Order ID</label>
+                <input type="text" id="id" name="id" value="{{ order.id }}" disabled class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="productName">Product Name</label>
+                <input type="text" id="productName" name="productName" disabled value="{{ order.productName }}" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="text" id="quantity" name="quantity" disabled value="{{ order.quantity }}" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text" id="price" name="price"  disabled value="{{ order.price }}" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="date">Date</label>
+                <input type="text" id="date" name="date" disabled value="{{ order.date }}" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="customer_name">Customer Name</label>
+                <input type="text" id="customer_name" disabled name="customer_name" value="{{ customer_data.name }}" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="email">Customer email</label>
+                <input type="text" id="email" name="email" disabled value="{{ customer_data.email }}" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status" name="status" class="form-control">
+                  <option value="0" {% if order.status == 0 %} selected {% endif %}>Pending</option>
+                  <option value="1" {% if order.status == 1 %} selected {% endif %}>Confirmed</option>
+                  <option value="2" {% if order.status == 2 %} selected {% endif %}>Delivered</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg btn-block">Save</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"></script>
+</body>
+
+</html>

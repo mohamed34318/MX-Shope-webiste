@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Order Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .total {
+            font-weight: bold;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Thank you for using MX Shop!</h1>
+        <p>Below are the details of your order:</p>
+        <ul>
+            {% for order in orders %}
+                <li>{{ order.productName }} - Quantity: {{ order.quantity }}, Price: ${{ order.price }}</li>
+            {% endfor %}
+        </ul>
+        <p class="total">Total cost: ${{ total_cost }}</p>
+        <p>You can check the status of your order <a href="https://example.com/order_status">here</a>.</p>
+    </div>
+</body>
+</html>
