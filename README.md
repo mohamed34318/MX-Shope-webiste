@@ -27,6 +27,13 @@ MX Shope website features include:
 - Password recovery functionality
 - User authentication (login and signup)
 
+Admin website have some feautures Include :
+- Managing Users (Where he can Block or remove some customers, helping customer in some issues like password or updating some data)
+- Managing Products ( admin can add or update product , delete or update the status where he can remove this product or make it closed )
+- Managing Orders (where he can update the status of orders of customers and send to them message to their email the order are Confirmed on Deliverd)
+- Manage Categories (where admin can add new category or update existing category by update status of category to be opend or closec so if the category is closed then the products that related to this product will be closed also )
+
+
 ### Advantages of the Project:
 - Enhanced interactivity and intelligence: Customers receive notifications for all order-related activities and changes in product availability or category status. 
 - Wishlist and cart features provide convenience and ease of use.
